@@ -1,0 +1,89 @@
+@UserManagementAPI_HostAddress = http://localhost:5084
+@ApiToken = techhive-demo-token
+
+GET {{UserManagementAPI_HostAddress}}/api/users
+Accept: application/json
+Authorization: Bearer {{ApiToken}}
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/api/users/1
+Accept: application/json
+Authorization: Bearer {{ApiToken}}
+
+###
+
+POST {{UserManagementAPI_HostAddress}}/api/users
+Content-Type: application/json
+Authorization: Bearer {{ApiToken}}
+
+{
+	"firstName": "Taylor",
+	"lastName": "Nguyen",
+	"email": "taylor.nguyen@techhive.example",
+	"department": "Finance"
+}
+
+###
+
+PUT {{UserManagementAPI_HostAddress}}/api/users/1
+Content-Type: application/json
+Authorization: Bearer {{ApiToken}}
+
+{
+	"firstName": "Avery",
+	"lastName": "Morgan-Smith",
+	"email": "avery.morgan-smith@techhive.example",
+	"department": "Human Resources"
+}
+
+###
+
+DELETE {{UserManagementAPI_HostAddress}}/api/users/2
+Accept: application/json
+Authorization: Bearer {{ApiToken}}
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/api/users/999
+Accept: application/json
+Authorization: Bearer {{ApiToken}}
+
+###
+
+POST {{UserManagementAPI_HostAddress}}/api/users
+Content-Type: application/json
+Authorization: Bearer {{ApiToken}}
+
+{
+	"firstName": "   ",
+	"lastName": "Valid",
+	"email": "invalid-input@techhive.example",
+	"department": "IT"
+}
+
+###
+
+POST {{UserManagementAPI_HostAddress}}/api/users
+Content-Type: application/json
+Authorization: Bearer {{ApiToken}}
+
+{
+	"firstName": "Duplicate",
+	"lastName": "Email",
+	"email": "avery.morgan@techhive.example",
+	"department": "IT"
+}
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/api/users
+Accept: application/json
+
+###
+
+GET {{UserManagementAPI_HostAddress}}/api/users/diagnostics/error
+Accept: application/json
+Authorization: Bearer {{ApiToken}}
+
+###
